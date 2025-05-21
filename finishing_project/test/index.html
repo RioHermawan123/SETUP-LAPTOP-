@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TES FUNGSI DASAR</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="fullscreenPrompt">TEKAN TOMBOL APAPUN UNTUK MEMULAI TES</div>
+    <div id="debugInfo">Test: <span id="currentTestDisplay"></span></div>
+    <div id="testContainer">
+        <h1 id="testTitle">TES FUNGSI DASAR</h1>
+        <div id="lcdTest">KLIK TOMBOL APAPUN UNTUK GANTI WARNA</div>
+        <div id="cameraTest" style="display:none;">
+            <div id="cameraBox">
+            <video id="video" autoplay playsinline style="width: 100%; max-width: 500px;"></video>
+            </div>
+            <div id="cameraControls">
+            <button id="captureButton">CAPTURE</button>
+            <button id="switchCameraButton">SWITCH KAMERA</button>
+            </div>
+        </div>
+        <div id="speakerTest" style="display:none;">
+            <button id="playLeftButton">KIRI</button>
+            <button id="playAllButton">STEREO</button>
+            <button id="playRightButton">KANAN</button>
+        </div>
+        <div id="micTest" style="display:none;">
+            <button id="startRecordButton">MULAI MEREKAM</button>
+            <button id="stopRecordButton" style="display:none;">STOP</button>
+            <button id="playRecordingButton" style="display:none;">PLAY</button>
+            <div id="recordingTimer" style="display:none;">00:00</div>
+            <audio id="recordedAudio" controls style="display:none;"></audio>
+        </div>
+        <canvas id="canvas" style="display:none;"></canvas>
+    </div>
+    <script src="script.js">
+    </script>
+</body>
+</html>
