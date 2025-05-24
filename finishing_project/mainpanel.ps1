@@ -1,4 +1,4 @@
-﻿Set-Location -Path $PSScriptRoot
+Set-Location -Path $PSScriptRoot
 Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
@@ -67,7 +67,7 @@ $filePath = "namateknisi.txt"  # Change this to your file path
 
 # Create the main form
 $form = New-Object System.Windows.Forms.Form
-$form.Text = "Finishing Panel - $($namateknisi)"
+$form.Text = "Tools Support - $($namateknisi)"
 $form.Size = New-Object System.Drawing.Size(495, 565)
 $form.StartPosition = "CenterScreen"
 $form.FormBorderStyle = [System.Windows.Forms.FormBorderStyle]::FixedSingle
@@ -77,7 +77,8 @@ $form.MinimizeBox = $false  # Disable the minimize button
 # Create panels for differrent pages
 $page1 = New-Object System.Windows.Forms.Panel
 $page1.Dock = 'Fill'
-$page1.BackColor = [System.Drawing.Color]::Gray
+$page1.BackColor = "#FA8B01"
+#$page1.BackColor = [System.Drawing.Color]::DarkCyan
 
 $page2 = New-Object System.Windows.Forms.Panel
 $page2.Dock = 'Fill'
@@ -234,7 +235,7 @@ if ($merkLaptop -like "Lenovo"){
     $brandName.Text = "$merkLaptop $typeLaptop"
     $brandName.AutoSize = $true
     $brandName.Font = New-Object System.Drawing.Font('Segoe UI', 20, [System.Drawing.FontStyle]::Bold)
-    $brandName.ForeColor = "BLACK"
+    $brandName.ForeColor = "LightGray"
     #$brandName.BackColor = "white"
     $page1.Controls.Add($brandName)
     $brandName.Location = New-Object System.Drawing.Point(
@@ -273,7 +274,8 @@ $Autoclick = New-Object System.Windows.Forms.GroupBox
 $Autoclick.Text = "AutoClick"
 $Autoclick.Size = New-Object System.Drawing.Size(440, 50)
 $Autoclick.Location = New-Object System.Drawing.Point(20, 170)
-#$Autoclick.BackColor = [System.Drawing.Color]::white
+$Autoclick.BackColor = "#E7D283"
+# $Autoclick.BackColor = [System.Drawing.Color]::LightGray
 
 function set-FolderOpt {
     $WshShell = New-Object -comObject WScript.Shell
@@ -388,7 +390,7 @@ $runAutoclick.Size = "50, 20"
 $runAutoclick.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runAutoclick.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runAutoclick.Location = New-Object System.Drawing.Point(380, 16)
-$runAutoclick.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runAutoclick.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runAutoclick.Add_Click({
    if($folderOpt.Checked) { set-FolderOpt }
    if($desktopIco.Checked) { set-DesktopIcon }
@@ -403,7 +405,8 @@ $partisi = New-Object System.Windows.Forms.GroupBox
 $partisi.Text = "Partisi"
 $partisi.Size = New-Object System.Drawing.Size(440, 47)
 $partisi.Location = New-Object System.Drawing.Point(20, 230)
-$partisi.BackColor = [System.Drawing.Color]::white
+$partisi.BackColor = "#E7D283"
+# $partisi.BackColor = [System.Drawing.Color]::LightGray
 
 
 #Detect Disk C Capacity
@@ -552,7 +555,7 @@ $runPartisi.Size = "50, 20"
 $runPartisi.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runPartisi.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runPartisi.Location = New-Object System.Drawing.Point(380, 16)
-$runPartisi.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runPartisi.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runPartisi.Add_Click({
     $partitionSize = $TextBoxPARTISI.Text
 
@@ -606,7 +609,8 @@ $freeware = New-Object System.Windows.Forms.GroupBox
 $freeware.Text = "Freeware"
 $freeware.Size = New-Object System.Drawing.Size(440, 47)
 $freeware.Location = New-Object System.Drawing.Point(20, 287)
-$freeware.BackColor = [System.Drawing.Color]::white
+$freeware.BackColor = "#E7D283"
+# $freeware.BackColor = [System.Drawing.Color]::LightGray
 
 $freewareAUTO = New-Object System.Windows.Forms.CheckBox
 $freewareAUTO.Location = New-Object System.Drawing.Point(10,13)
@@ -684,7 +688,7 @@ $runFreeware.Size = "50, 20"
 $runFreeware.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runFreeware.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runFreeware.Location = New-Object System.Drawing.Point(380, 16)
-$runFreeware.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runFreeware.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runFreeware.Add_Click({
     if ($freewareAUTO.Checked) {
        Run-GUI "newfw.ps1"
@@ -717,7 +721,8 @@ $office = New-Object System.Windows.Forms.GroupBox
 $office.Text = "Office"
 $office.Size = New-Object System.Drawing.Size(440, 48)
 $office.Location = New-Object System.Drawing.Point(20, 345)
-$office.BackColor = [System.Drawing.Color]::white
+$office.BackColor = "#E7D283"
+# $office.BackColor = [System.Drawing.Color]::LightGray
 
 $checkboxOffice = New-Object System.Windows.Forms.CheckBox
 $checkboxOffice.Location = New-Object System.Drawing.Point(10, 19)
@@ -953,7 +958,7 @@ $runOffice.Size = "50, 20"
 $runOffice.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runOffice.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runOffice.Location = New-Object System.Drawing.Point(380, 16)
-$runOffice.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runOffice.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runOffice.Add_Click({
             $snlaptopmsi = $snMSI.Text
               if ($merkLaptop -like "MSI") {
@@ -1032,7 +1037,8 @@ $mcafee = New-Object System.Windows.Forms.GroupBox
 $mcafee.Text = "McAfee"
 $mcafee.Size = New-Object System.Drawing.Size(440, 48)
 $mcafee.Location = New-Object System.Drawing.Point(20, 403)
-$mcafee.BackColor = [System.Drawing.Color]::white
+$mcafee.BackColor = "#E7D283"
+# $mcafee.BackColor = [System.Drawing.Color]::LightGray
 
 function Create-McafeeShortcut {
       $mcafeePath = "C:\Program Files\McAfee\WPS\mc-launch.exe"
@@ -1063,7 +1069,7 @@ $runMcafee.Size = "50, 20"
 $runMcafee.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runMcafee.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runMcafee.Location = New-Object System.Drawing.Point(380, 16)
-$runMcafee.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runMcafee.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runMcafee.Add_Click({
       Create-McafeeShortcut
 
@@ -1101,14 +1107,15 @@ $page1.Add_Paint({
 
 
 $runALL = New-Object System.Windows.Forms.Button
-$runALL.Text = "RUN SELECTED"
+$runALL.Text = "RUN"
 $runALL.Size = "80, 40"
+$runALL.Backcolor = "Snow"
 $runALL.Cursor = [System.Windows.Forms.Cursors]::Hand
 $runALL.FlatStyle = [System.Windows.Forms.FlatStyle]::Flat
 $runALL.Font = New-Object System.Drawing.Font('Segoe UI', 10, [System.Drawing.FontStyle]::Bold)
 $runALL.Location = New-Object System.Drawing.Point(192, 466)
-$runALL.FlatAppearance.MouseOverBackColor = [System.Drawing.Color]::LightGray
-$runALL.FlatAppearance.BorderColor = [System.Drawing.Color]::LightGray
+$runALL.FlatAppearance.MouseOverBackColor = [System.Drawing.Color]::Green
+$runALL.FlatAppearance.BorderColor = [System.Drawing.Color]::Black
 $runALL.Add_Click({
     start-process -filepath "$($env:TEMP)\finishing_project\time.bat"
     (Get-Process -Name powershell).MainWindowHandle | foreach { Set-WindowStyle MINIMIZE $_ }
@@ -1149,8 +1156,8 @@ $page1.Controls.Add($testButton)
 
 function REPORT-NONOHS {
 
-        
     $formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSetEJsh0YeC8YRn-W6EMNmQfcYhLxCNkGpn5zf0SNr2XW0jqg/formResponse"
+        
      $formData = @{
         "entry.80679584" = "$namateknisi"   #teknisi
         "entry.1221910596" = "$serialnumber" #sn
@@ -1163,6 +1170,25 @@ function REPORT-NONOHS {
         "entry.315707343" = "TIDAK INCLUDE OFFICE" #akunoffice
         "entry.1851907708" = "TIDAK INCLUDE OFFICE" #password
     }
+
+        # =================== ENTRY FOR TRIAL CHECK FORM =========================
+
+    #     $formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfC_RJbfvVc6vb3-c4MrzOVEZTevy2-HFFvpVLMzs5-6E_W-w/formResponse"
+    # $formData = @{
+    # "entry.1615389212" = "$namateknisi"  
+    # "entry.1331036153" = "$serialnumber" 
+    # "entry.1138861216" = "$brand"
+    # "entry.193620070" = "$modelprocessed"
+    # "entry.1733327904" = "$modeldetected"
+    # "entry.1745697285" = "$processor"
+    # "entry.413879700" = "$($ram)GB"
+    # "entry.2105807562" = "$storage"
+    # "entry.1353344334" = "TIDAK INCLUDE OFFICE" #akunoffice
+    # "entry.567943420" = "TIDAK INCLUDE OFFICE" #password
+    # }
+
+    # ==========================================================================
+
     try {
     $response = Invoke-WebRequest -Uri $formUrl -Method POST -Body $formData
     }catch{
@@ -1212,11 +1238,11 @@ $saveName.Add_Click({
     $page1.Visible = $true
 
     # Update the label with the new name
-    $labelWelcome.Text = "Welcome, $namateknisi"
+    $labelWelcome.Text = "WELCOME, $namateknisi"
     $labelWelcome.Location = New-Object System.Drawing.Point(
     [int](($form.ClientSize.Width - $labelWelcome.Width) / 2),  35  )
     $page1.Controls.Add($labelWelcome)
-    $form.Text = "Finishing Panel - $($namateknisi)"
+    $form.Text = "Tools Support - $($namateknisi)"
 
 })
 $changeName.Controls.Add($saveName)
