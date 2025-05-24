@@ -1,4 +1,4 @@
-﻿Add-Type -AssemblyName System.Windows.Forms
+Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $form = New-Object System.Windows.Forms.Form
@@ -70,20 +70,40 @@ $form.Controls.Add($nextButton)
 $nextButton.Location = New-Object System.Drawing.Point(
     [int](($form.Width - $nextButton.Width) / 2),  100  )
 $nextButton.Add_Click({
-#https://docs.google.com/forms/d/e/1FAIpQLSf8rBNxLD_s3EJrtajH_v_WE7DUxO5uA9_kkxMW4WnzW0036g/viewform?usp=pp_url&entry.1123239085=Teknisi&entry.1647863460=SerialNumber&entry.862978679=Brand&entry.942663444=ModelProcessed&entry.1915803962=ModelDetected&entry.490213951=Processor&entry.433477474=Ram&entry.551716795=Storage&entry.1305841159=AkunOffice&entry.434891167=Password
+    # https://docs.google.com/forms/d/e/1FAIpQLSf8rBNxLD_s3EJrtajH_v_WE7DUxO5uA9_kkxMW4WnzW0036g/viewform?usp=pp_url&entry.1123239085=Teknisi&entry.1647863460=SerialNumber&entry.862978679=Brand&entry.942663444=ModelProcessed&entry.1915803962=ModelDetected&entry.490213951=Processor&entry.433477474=Ram&entry.551716795=Storage&entry.1305841159=AkunOffice&entry.434891167=Password
+    
     $formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSetEJsh0YeC8YRn-W6EMNmQfcYhLxCNkGpn5zf0SNr2XW0jqg/formResponse"
      $formData = @{
-        "entry.80679584" = "$teknisi"   #teknisi
-        "entry.1221910596" = "$serialnumber" #sn
-        "entry.1477663918" = "$brand" #brand
-        "entry.1219257192" = "$modelprocessed" #modelprocessd
-        "entry.2013583334" = "$modeldetected" #modeldtcted
-        "entry.985676516" = "$processor" #processor
-        "entry.1024081183" = "$($ram)GB"   #ram
-        "entry.642883361" = "$storage" #storage
-        "entry.315707343" = "$($officebox.Text)" #akunoffice
-        "entry.1851907708" = "$($passwordbox.Text)" #password
-    }
+            "entry.80679584" = "$teknisi"   #teknisi
+            "entry.1221910596" = "$serialnumber" #sn
+            "entry.1477663918" = "$brand" #brand
+            "entry.1219257192" = "$modelprocessed" #modelprocessd
+            "entry.2013583334" = "$modeldetected" #modeldtcted
+            "entry.985676516" = "$processor" #processor
+            "entry.1024081183" = "$($ram)GB"   #ram
+            "entry.642883361" = "$storage" #storage
+            "entry.315707343" = "$($officebox.Text)" #akunoffice
+            "entry.1851907708" = "$($passwordbox.Text)" #password
+        }
+
+
+        # =================== ENTRY FOR TRIAL CHECK FORM =========================
+#     $formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfC_RJbfvVc6vb3-c4MrzOVEZTevy2-HFFvpVLMzs5-6E_W-w/formResponse"
+#     $formData = @{
+#     "entry.1615389212" = "$teknisi"
+#     "entry.1331036153" = "$serialnumber"
+#     "entry.1138861216" = "$brand"
+#     "entry.193620070" = "$modelprocessed"
+#     "entry.1733327904" = "$modeldetected"
+#     "entry.1745697285" = "$processor"
+#     "entry.413879700" = "$($ram)GB"
+#     "entry.2105807562" = "$storage"
+#     "entry.1353344334" = "$($officebox.Text)"
+#     "entry.567943420" = "$($passwordbox.Text)"
+# }
+
+# ==========================================================================
+
      $response = Invoke-WebRequest -Uri $formUrl -Method POST -Body $formData
       if ($response.StatusCode -eq 200) {
         $form.close()
