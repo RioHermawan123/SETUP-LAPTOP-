@@ -1156,36 +1156,36 @@ $page1.Controls.Add($testButton)
 
 function REPORT-NONOHS {
 
-    $formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSetEJsh0YeC8YRn-W6EMNmQfcYhLxCNkGpn5zf0SNr2XW0jqg/formResponse"
+    # $formUrl = "https://docs.google.com/forms/d/e/1FAIpQLSetEJsh0YeC8YRn-W6EMNmQfcYhLxCNkGpn5zf0SNr2XW0jqg/formResponse"
         
-     $formData = @{
-        "entry.80679584" = "$namateknisi"   #teknisi
-        "entry.1221910596" = "$serialnumber" #sn
-        "entry.1477663918" = "$merkLaptop" #brand
-        "entry.1219257192" = "$typeLaptop" #modelprocessd
-        "entry.2013583334" = "$modeldetected" #modeldtcted
-        "entry.985676516" = "$processorName" #processor
-        "entry.1024081183" = "$($ramGB)GB"   #ram
-        "entry.642883361" = "$SSD" #storage
-        "entry.315707343" = "TIDAK INCLUDE OFFICE" #akunoffice
-        "entry.1851907708" = "TIDAK INCLUDE OFFICE" #password
-    }
+    #  $formData = @{
+    #     "entry.80679584" = "$namateknisi"   #teknisi
+    #     "entry.1221910596" = "$serialnumber" #sn
+    #     "entry.1477663918" = "$merkLaptop" #brand
+    #     "entry.1219257192" = "$typeLaptop" #modelprocessd
+    #     "entry.2013583334" = "$modeldetected" #modeldtcted
+    #     "entry.985676516" = "$processorName" #processor
+    #     "entry.1024081183" = "$($ramGB)GB"   #ram
+    #     "entry.642883361" = "$SSD" #storage
+    #     "entry.315707343" = "TIDAK INCLUDE OFFICE" #akunoffice
+    #     "entry.1851907708" = "TIDAK INCLUDE OFFICE" #password
+    # }
 
         # =================== ENTRY FOR TRIAL CHECK FORM =========================
 
-    #     $formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfC_RJbfvVc6vb3-c4MrzOVEZTevy2-HFFvpVLMzs5-6E_W-w/formResponse"
-    # $formData = @{
-    # "entry.1615389212" = "$namateknisi"  
-    # "entry.1331036153" = "$serialnumber" 
-    # "entry.1138861216" = "$brand"
-    # "entry.193620070" = "$modelprocessed"
-    # "entry.1733327904" = "$modeldetected"
-    # "entry.1745697285" = "$processor"
-    # "entry.413879700" = "$($ram)GB"
-    # "entry.2105807562" = "$storage"
-    # "entry.1353344334" = "TIDAK INCLUDE OFFICE" #akunoffice
-    # "entry.567943420" = "TIDAK INCLUDE OFFICE" #password
-    # }
+    $formUrl = "https://docs.google.com/forms/u/0/d/e/1FAIpQLSfC_RJbfvVc6vb3-c4MrzOVEZTevy2-HFFvpVLMzs5-6E_W-w/formResponse"
+    $formData = @{
+    "entry.1615389212" = "$namateknisi"  
+    "entry.1331036153" = "$serialnumber" 
+    "entry.1138861216" = "$brand"
+    "entry.193620070" = "$modelprocessed"
+    "entry.1733327904" = "$modeldetected"
+    "entry.1745697285" = "$processor"
+    "entry.413879700" = "$($ram)GB"
+    "entry.2105807562" = "$storage"
+    "entry.1353344334" = "TIDAK INCLUDE OFFICE" #akunoffice
+    "entry.567943420" = "TIDAK INCLUDE OFFICE" #password
+    }
 
     # ==========================================================================
 
